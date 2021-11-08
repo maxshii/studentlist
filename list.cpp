@@ -1,3 +1,8 @@
+/*
+*This program will allow the user to add, delete, and print out at list of students and information about them
+*Max Shi
+*11/7/2021
+*/
 #include <iostream>
 
 #include <vector>
