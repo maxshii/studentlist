@@ -4,15 +4,10 @@
 *11/7/2021
 */
 #include <iostream>
-
 #include <vector>
-
 #include <iterator>
-
 #include <cstring>
-
 #include <iomanip>
-
 #include <algorithm>
 
 using namespace std;
@@ -33,8 +28,8 @@ void print(vector < Student * > * v);
 
 int
 main() {
-  vector < Student * > studentList;
-  vector < Student * > * vectorPointer = new vector < Student * > ();
+  vector < Student * > studentList; //vector of struct pointers
+  vector < Student * > * vectorPointer = new vector < Student * > (); //vector pointer that points to a vector of struct pointers
   vectorPointer = & studentList;
 
   while(true) {
@@ -65,7 +60,7 @@ main() {
 }
 
 void
-add(vector < Student * > * v) {
+add(vector < Student * > * v) { //prompts user for data about student then adds to vector, uses vector that points to a vector of struct pointers
   char first[80];
   char last[80];
   int id;
@@ -89,9 +84,8 @@ add(vector < Student * > * v) {
 }
 
 void
-print(vector < Student * > * v) {
-  vector < Student * > ::iterator ptr;
-
+print(vector < Student * > * v) { //prints using vector that points to a vector of struct pointers
+  vector < Student * > ::iterator ptr; //iterates through vector and prints student data
   for (ptr = v -> begin(); ptr < v -> end(); ++ptr) {
 
     cout << ( * ptr) -> first << " " << ( * ptr) -> last << ", " << ( * ptr) ->
@@ -100,18 +94,14 @@ print(vector < Student * > * v) {
 
 }
 
-void del(vector < Student * > * v, int i) {
+void del(vector < Student * > * v, int i) { //deletes using a vector that points to a vector of struct pointers
   vector < Student * > ::iterator ptr;
-  int count = 0;
-  for (ptr = v -> begin(); ptr < v -> end(); ++ptr) {
-    if (( * ptr) -> id == i) {
+  for (ptr = v -> begin(); ptr < v -> end(); ++ptr) { //iterates through vector and compares student id to provided id
+    if (( * ptr) -> id == i) { 
       
-      delete *ptr;
+      delete *ptr; //deletes data
     
-      v -> erase(ptr);
+      v -> erase(ptr); //removes from vector
     }
-
-    count++;
   }
-
 }
