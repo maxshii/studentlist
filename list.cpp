@@ -1,3 +1,10 @@
+/******************************************************************************
+
+Online C++ Compiler.
+Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
 
 #include <iostream>
 
@@ -18,9 +25,6 @@ struct Student {
   char last[80];
   int id;
   float gpa;
-  ~Student(){
-      delete(Student);
-  }
 };
 
 void
@@ -99,7 +103,9 @@ void del(vector < Student * > * v, int i) {
   int count = 0;
   for (ptr = v -> begin(); ptr < v -> end(); ++ptr) {
     if (( * ptr) -> id == i) {
+
       v -> erase(ptr);
+      
     }
 
     count++;
